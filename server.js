@@ -29,6 +29,12 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
+//TODO: Comment this
+app.get("/api/notes", function (err, res) {
+    notes = fs.readFileSync("db/db.json", "utf8");
+    notes = JSON.parse(notes);
+    res.json(notes);
+});
 
 // Starts the server to begin listening
 // =============================================================
