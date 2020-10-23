@@ -6,7 +6,7 @@ const fs = require("fs");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +20,7 @@ let notes = [];
 
 
 //Routes
-
+//================================
 //Gets
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"));
