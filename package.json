@@ -1,5 +1,5 @@
 {
-  "name": "note-taker-gui",
+  "name": "Note-Taker-GUI",
   "version": "1.0.0",
   "description": "A simple note taker GUI",
   "main": "server.js",
