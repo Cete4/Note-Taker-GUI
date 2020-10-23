@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Cete4/Note-Taker-GUI/issues"
   },
-  "homepage": "https://github.com/Cete4/Note-Taker-GUI#readme"
+  "homepage": "https://github.com/Cete4/Note-Taker-GUI#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
