@@ -11,8 +11,7 @@ const PORT = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
+app.use(express.static('public'));
 //Global Variables
 let notes = [];
 
@@ -72,7 +71,6 @@ app.delete("/api/notes/:id", function (req, res) {
     res.send(JSON.parse(notes));
 });
 
-app.use(express.static('public'));
 
 // Starts the server to begin listening
 // =============================================================
