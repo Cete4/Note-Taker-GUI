@@ -53,18 +53,19 @@ app.post("/api/notes", function (req, res) {
 
 //Delete A Note
 app.delete("/api/notes/:id", function (req, res) {
-
-
+    // Boiler get the notes in the right format
     notes = fs.readFileSync("db/db.json", "utf8");
     notes = JSON.parse(notes);
     notes = notes.filter(function (note) {
         return note.id != req.params.id;
     });
+    //This was in the wrong spot
     notes = JSON.stringify(notes);
     fs.writeFile("db/db.json", notes, "utf8", function (err) {
 
         if (err) throw err;
     });
+    //Thank goodness it works now
     res.send(JSON.parse(notes));
 });
 
