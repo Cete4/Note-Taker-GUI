@@ -32,7 +32,9 @@ app.get("/notes", function (req, res) {
 //TODO: Comment this
 app.get("/api/notes", function (err, res) {
     notes = fs.readFileSync("db/db.json", "utf8");
-    res.json(JSON.parse(notes));
+    notes = JSON.parse(notes);
+    console.log(notes)
+    res.json(notes);
 });
 
 //Posts
@@ -52,19 +54,17 @@ app.post("/api/notes", function (req, res) {
 //Delete A Note
 app.delete("/api/notes/:id", function (req, res) {
 
+
     notes = fs.readFileSync("db/db.json", "utf8");
-
     notes = JSON.parse(notes);
-
     notes = notes.filter(function (note) {
         return note.id != req.params.id;
     });
-
+    notes = JSON.stringify(notes);
     fs.writeFile("db/db.json", notes, "utf8", function (err) {
 
         if (err) throw err;
     });
-    notes = JSON.stringify(notes);
     res.send(JSON.parse(notes));
 });
 
